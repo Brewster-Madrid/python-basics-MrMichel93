@@ -2,42 +2,61 @@
 Follow the instructions below and run the test file whenever you're ready 
 to check if your program is correct."""
 
-#Create a function to return two added numbers, function must be called add
+#Create a function to return two added numbers
+def add(num1, num2):
+    return num1 + num2
 
+#Create a function to return two subtracted numbers
+def subtract(num1, num2):
+    return num1 - num2
 
-#Create a function to return two subtracted numbers, function must be called subtract
+#Create a function to return two multiplied numbers
+def multiply(num1, num2):
+    return num1 * num2
 
+#Create a function to return two divided numbers
+def divide(num1, num2):
+    return num1 / num2
 
-#Create a function to return two multiplied numbers, function must be called multiply
+#Create a function to return the remainder of two numbers
+def remainder(num1, num2):
+    return num1 % num2
 
+#Create a function to return the exponent of two numbers
+def exponent(num1, num2):
+    return num1 ** num2
 
-#Create a function to return two divided numbers, function must be called divide
+#Create menu of options to let user decide which function they want to use
+#Print menu of options
+#Get user input
+#Run program that user selected
+def program():
+    print('Select the program you wish to run: ')
+    print('1: Addition')
+    print('2: Subtraction')
+    print('3: Multiplication')
+    print('4: Division')
+    print('5: Remainder')
+    print('6: Exponent')
 
+#Run the function that the user requests
+    choice = input('Enter program number here: ')
+    
+    num1 = float(input('Enter your first number: '))
+    num2 = float(input('Enter your second number: '))
 
-#Create a function to return the remainder of two numbers, function must be called remainder
+    if choice == '1':
+        print(add(num1, num2))
+    elif choice == '2':
+        print(subtract(num1, num2))
+    elif choice == '3':
+        print(multiply(num1, num2))
+    elif choice == '4':
+        print(divide(num1, num2))
+    elif choice == '5':
+        print(remainder(num1, num2))
+    elif choice == '6':
+        print(exponent(num1, num2))
 
-
-#Create a function to return the exponent of two numbers, function must be called exponent
-
-
-
-'''Create the main function here which will ask for user input about the type of program
-he/she wants to use and then asks for their two numbers'''
-#Create main function and print a list of all the types of programs your calculator offers
-
-
-#Get user input on the type of program and the two numbers needed for the program
-
-
-#Based on the user input, the requested program should run 
-#ex: if user input 1, it means they want to add two numbers, but what happens if they input 2, which program should run
-
-
-#Make sure you call the main function outside of itself so that it actually runs in the CLI.
-#Place the main function inside the if __name__ == "__main__": block
-#Not sure what calling a function means? Google it!
 if __name__ == "__main__":
-
-
-#The if statement above is used to make sure you can run tests to check 
-#if your program is working correctly.
+    program()
