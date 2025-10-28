@@ -59,4 +59,5 @@ def program():
         print(exponent(num1, num2))
 
 if __name__ == "__main__":
+    print("Welcome to the CLI Calculator!")
     program()
