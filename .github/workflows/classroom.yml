@@ -19,24 +19,21 @@ jobs:
       with:
         timeout: 1
         max-score: 10
-        setup-command: pip install pytest
-        command: pytest -v calcv1_test.py
+        setup-command: ''
     - name: calcv2_test.py
       id: calcv2_test-py
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 1
         max-score: 10
-        setup-command: pip install pytest
-        command: pytest -v calcv2_test.py
+        setup-command: ''
     - name: calcv3_test.py
       id: calcv3_test-py
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 1
         max-score: 10
-        setup-command: pip install pytest
-        command: pytest -v calcv2_test.py
+        setup-command: ''
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
