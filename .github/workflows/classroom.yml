@@ -1,0 +1,47 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: calcv1_test.py
+      id: calcv1_test-py
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 1
+        max-score: 10
+        setup-command: pip install pytest
+        command: pytest -v calcv1_test.py
+    - name: calcv2_test.py
+      id: calcv2_test-py
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 1
+        max-score: 10
+        setup-command: pip install pytest
+        command: pytest -v calcv2_test.py
+    - name: calcv3_test.py
+      id: calcv3_test-py
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 1
+        max-score: 10
+        setup-command: pip install pytest
+        command: pytest -v calcv2_test.py
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CALCV1_TEST-PY_RESULTS: "${{steps.calcv1_test-py.outputs.result}}"
+        CALCV2_TEST-PY_RESULTS: "${{steps.calcv2_test-py.outputs.result}}"
+        CALCV3_TEST-PY_RESULTS: "${{steps.calcv3_test-py.outputs.result}}"
+      with:
+        runners: calcv1_test-py,calcv2_test-py,calcv3_test-py
